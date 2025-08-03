@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="random_users_toolbar_title">Random People</string>
+    <string name="bookmarks_toolbar_title">Saved Items</string>
+    <string name="random_users_title">Users</string>
+    <string name="bookmarks_title">Bookmarks</string>
+    <string name="loading_title">Loading…</string>
+    <string name="error_title">Something went wrong</string>
+    <string name="no_network_title">No Network</string>
+    <string name="empty_bookmarks_title">You do not have Saved Users</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_color">#000000</color>
+    <color name="nav_bar_selected_color">#4E73DF</color>
+    <color name="nav_bar_unselected_color">#A7A7A7</color>
+    <color name="nav_bar_bg">#313131</color>
+    <color name="item_bg">#313131</color>
+    <color name="bookmark_bg">#FF9800</color>
+    <color name="title_color">#FFFFFF</color>
+    <color name="sub_title_color">#A7A7A7</color>
+    <color name="image_bg">#39BDFF</color>
+</resources>

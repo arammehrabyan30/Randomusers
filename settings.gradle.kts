@@ -21,4 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "Randomusers"
 include(":app")
- 
+include(":db")
+include(":network")
+include(":connector")
+include(":users:impl")
+include(":users:api")
+include(":core")
