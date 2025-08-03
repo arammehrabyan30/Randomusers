@@ -3,6 +3,7 @@ package com.aram.mehrabyan.users.impl.di
 import com.aram.mehrabyan.network.api.RestApiCreator
 import com.aram.mehrabyan.users.api.UsersNavGraphProvider
 import com.aram.mehrabyan.users.impl.internal.RealUsersNavGraphProvider
+import com.aram.mehrabyan.users.impl.internal.users.UsersNavigationViewModel
 import com.aram.mehrabyan.users.impl.internal.data.RealUsersRepo
 import com.aram.mehrabyan.users.impl.internal.data.UsersApiService
 import com.aram.mehrabyan.users.impl.internal.data.UsersRepo
@@ -12,6 +13,10 @@ import com.aram.mehrabyan.users.impl.internal.data.mapper.RealUserUiModelToDBMod
 import com.aram.mehrabyan.users.impl.internal.data.mapper.UserApiModelsToUiModelsMapper
 import com.aram.mehrabyan.users.impl.internal.data.mapper.UserDBModelsToUiModelsMapper
 import com.aram.mehrabyan.users.impl.internal.data.mapper.UserUiModelToDBModelMapper
+import com.aram.mehrabyan.users.impl.internal.details.UserDetailsViewModel
+import com.aram.mehrabyan.users.impl.internal.details.ui.RealUserDetailsUiController
+import com.aram.mehrabyan.users.impl.internal.details.ui.UserDetailsUiController
+import com.aram.mehrabyan.users.impl.internal.userItems.adapter.UserItemUiModel
 import com.aram.mehrabyan.users.impl.internal.userItems.bookmarks.BookMarksViewModel
 import com.aram.mehrabyan.users.impl.internal.userItems.bookmarks.manager.AllBookmarksManager
 import com.aram.mehrabyan.users.impl.internal.userItems.bookmarks.manager.RealAllBookmarksManager
@@ -70,7 +75,15 @@ fun usersModule() = module {
 
     factory<BookmarksUiController> { RealBookmarksUiController() }
 
+    factory<UserDetailsUiController> { RealUserDetailsUiController() }
+
+    viewModel { UsersNavigationViewModel() }
+
     viewModel { RandomUsersViewModel(manager = get(), bookmarksManager = get()) }
 
     viewModel { BookMarksViewModel(manager = get(), bookmarksManager = get()) }
+
+    viewModel { (item: UserItemUiModel?) ->
+        UserDetailsViewModel(bookmarksManager = get(), item = item)
+    }
 }

@@ -10,6 +10,7 @@ import com.aram.mehrabyan.core.ui.show
 import com.aram.mehrabyan.core.utils.RandomUsersNoNetworkException
 import com.aram.mehrabyan.users.impl.R
 import com.aram.mehrabyan.users.impl.databinding.FragmentUserItemsBinding
+import com.aram.mehrabyan.users.impl.internal.users.UsersNavigationViewModel
 import com.aram.mehrabyan.users.impl.internal.userItems.adapter.UserItemsAdapter
 import com.aram.mehrabyan.users.impl.internal.userItems.randomUsers.RandomUsersViewModel
 import kotlinx.coroutines.flow.launchIn
@@ -18,11 +19,12 @@ import kotlinx.coroutines.flow.onEach
 internal class RealRandomUsersUiController : RandomUsersUiController {
 
     override fun setup(
+        navigator: UsersNavigationViewModel,
         viewModel: RandomUsersViewModel,
         fragment: Fragment,
         binding: FragmentUserItemsBinding
     ) {
-        val adapter = createAdapter(viewModel = viewModel)
+        val adapter = createAdapter(navigator = navigator, viewModel = viewModel)
         setupAdapter(binding = binding, adapter = adapter)
         subscribeToUiState(
             viewModel = viewModel,
@@ -78,10 +80,20 @@ internal class RealRandomUsersUiController : RandomUsersUiController {
         }
     }
 
-    private fun createAdapter(viewModel: RandomUsersViewModel): UserItemsAdapter {
+    private fun createAdapter(
+        navigator: UsersNavigationViewModel,
+        viewModel: RandomUsersViewModel
+    ): UserItemsAdapter {
         return UserItemsAdapter(
-            bookmarkClick = { item -> viewModel.bookmark(item) },
-            loadMore = { viewModel.loadNextPage() }
+            openDetailsClick = { item ->
+                navigator.emitAction(UsersNavigationViewModel.Action.OpenUserDetails(item))
+            },
+            bookmarkClick = { item ->
+                viewModel.bookmark(item)
+            },
+            loadMore = {
+                viewModel.loadNextPage()
+            }
         )
     }
 

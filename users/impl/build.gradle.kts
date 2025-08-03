@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    kotlin("plugin.parcelize")
 }
 
 android {
@@ -30,6 +31,7 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.material)
     implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.retrofit)

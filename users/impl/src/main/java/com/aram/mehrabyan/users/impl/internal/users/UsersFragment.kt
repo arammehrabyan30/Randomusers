@@ -7,9 +7,11 @@ import com.aram.mehrabyan.users.impl.R
 import com.aram.mehrabyan.users.impl.databinding.FragmentUsersBinding
 import com.aram.mehrabyan.users.impl.internal.users.ui.UsersViewPagerUiController
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.activityViewModel
 
 internal class UsersFragment : Fragment(R.layout.fragment_users) {
 
+    private val navigator: UsersNavigationViewModel by activityViewModel()
     private val pagerUiController: UsersViewPagerUiController by inject()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -19,6 +21,10 @@ internal class UsersFragment : Fragment(R.layout.fragment_users) {
     }
 
     private fun setupUi(binding: FragmentUsersBinding) {
-        pagerUiController.setup(fragment = this, binding = binding)
+        pagerUiController.setup(
+            navigator = navigator,
+            fragment = this,
+            binding = binding
+        )
     }
 }

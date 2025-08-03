@@ -6,23 +6,73 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.aram.mehrabyan.users.impl.R;
+import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class FragmentUserDetailsBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final CoordinatorLayout rootView;
 
-  private FragmentUserDetailsBinding(@NonNull ConstraintLayout rootView) {
+  @NonNull
+  public final AppBarLayout appBar;
+
+  @NonNull
+  public final MaterialButton bookmarkButton;
+
+  @NonNull
+  public final CollapsingToolbarLayout collapsingToolbar;
+
+  @NonNull
+  public final NestedScrollView scrollView;
+
+  @NonNull
+  public final Toolbar toolbar;
+
+  @NonNull
+  public final AppCompatTextView tvEmail;
+
+  @NonNull
+  public final AppCompatTextView tvLocation;
+
+  @NonNull
+  public final AppCompatTextView tvPhone;
+
+  @NonNull
+  public final AppCompatImageView userImage;
+
+  private FragmentUserDetailsBinding(@NonNull CoordinatorLayout rootView,
+      @NonNull AppBarLayout appBar, @NonNull MaterialButton bookmarkButton,
+      @NonNull CollapsingToolbarLayout collapsingToolbar, @NonNull NestedScrollView scrollView,
+      @NonNull Toolbar toolbar, @NonNull AppCompatTextView tvEmail,
+      @NonNull AppCompatTextView tvLocation, @NonNull AppCompatTextView tvPhone,
+      @NonNull AppCompatImageView userImage) {
     this.rootView = rootView;
+    this.appBar = appBar;
+    this.bookmarkButton = bookmarkButton;
+    this.collapsingToolbar = collapsingToolbar;
+    this.scrollView = scrollView;
+    this.toolbar = toolbar;
+    this.tvEmail = tvEmail;
+    this.tvLocation = tvLocation;
+    this.tvPhone = tvPhone;
+    this.userImage = userImage;
   }
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +93,68 @@ public final class FragmentUserDetailsBinding implements ViewBinding {
 
   @NonNull
   public static FragmentUserDetailsBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.app_bar;
+      AppBarLayout appBar = ViewBindings.findChildViewById(rootView, id);
+      if (appBar == null) {
+        break missingId;
+      }
 
-    return new FragmentUserDetailsBinding((ConstraintLayout) rootView);
+      id = R.id.bookmark_button;
+      MaterialButton bookmarkButton = ViewBindings.findChildViewById(rootView, id);
+      if (bookmarkButton == null) {
+        break missingId;
+      }
+
+      id = R.id.collapsing_toolbar;
+      CollapsingToolbarLayout collapsingToolbar = ViewBindings.findChildViewById(rootView, id);
+      if (collapsingToolbar == null) {
+        break missingId;
+      }
+
+      id = R.id.scrollView;
+      NestedScrollView scrollView = ViewBindings.findChildViewById(rootView, id);
+      if (scrollView == null) {
+        break missingId;
+      }
+
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_email;
+      AppCompatTextView tvEmail = ViewBindings.findChildViewById(rootView, id);
+      if (tvEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_location;
+      AppCompatTextView tvLocation = ViewBindings.findChildViewById(rootView, id);
+      if (tvLocation == null) {
+        break missingId;
+      }
+
+      id = R.id.tv_phone;
+      AppCompatTextView tvPhone = ViewBindings.findChildViewById(rootView, id);
+      if (tvPhone == null) {
+        break missingId;
+      }
+
+      id = R.id.user_image;
+      AppCompatImageView userImage = ViewBindings.findChildViewById(rootView, id);
+      if (userImage == null) {
+        break missingId;
+      }
+
+      return new FragmentUserDetailsBinding((CoordinatorLayout) rootView, appBar, bookmarkButton,
+          collapsingToolbar, scrollView, toolbar, tvEmail, tvLocation, tvPhone, userImage);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

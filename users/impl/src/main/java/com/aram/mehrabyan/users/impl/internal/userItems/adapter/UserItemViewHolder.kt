@@ -12,6 +12,7 @@ import com.aram.mehrabyan.users.impl.databinding.ItemUserBinding
 
 internal class UserItemViewHolder(
     private val binding: ItemUserBinding,
+    private val openDetailsClick: (UserItemUiModel) -> Unit,
     private val bookmarkClick: (UserItemUiModel) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -23,6 +24,11 @@ internal class UserItemViewHolder(
     }
 
     private fun setupClickListeners(itemUiModel: UserItemUiModel) {
+        binding.root.setOnClickListener {
+            if (adapterPosition != RecyclerView.NO_POSITION) {
+                openDetailsClick(itemUiModel)
+            }
+        }
         binding.iconBookmark.setOnClickListener {
             if (adapterPosition != RecyclerView.NO_POSITION) {
                 bookmarkClick(itemUiModel)

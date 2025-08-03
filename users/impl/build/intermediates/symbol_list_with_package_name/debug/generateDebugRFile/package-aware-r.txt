@@ -10,6 +10,7 @@ color nav_bar_unselected_color
 color sub_title_color
 color title_color
 drawable bg_circle
+drawable icon_back
 drawable icon_bookmark_filled
 drawable icon_bookmark_outline
 drawable icon_bookmark_selector
@@ -20,8 +21,11 @@ drawable item_bg_ripple
 font gilroy_bold
 font gilroy_medium
 font gilroy_semi_bold
+id app_bar
+id bookmark_button
 id bottom_loading_bar
 id bottom_navigation
+id collapsing_toolbar
 id icon_bookmark
 id image_user
 id load_more
@@ -32,13 +36,18 @@ id progress_bar
 id progress_indicator
 id refresh_layout
 id rv_user_items
+id scrollView
 id title
 id toolbar
+id tv_email
 id tv_error
+id tv_location
+id tv_phone
 id tv_sub_title
 id tv_title
 id tv_toolbar
 id user_details
+id user_image
 id users
 id users_navigation
 id view_pager
@@ -49,6 +58,7 @@ layout item_user
 layout load_more_indicator
 menu users_bottom_nav_menu
 navigation users_nav_graph
+string bookmark_title
 string bookmarks_title
 string bookmarks_toolbar_title
 string empty_bookmarks_title

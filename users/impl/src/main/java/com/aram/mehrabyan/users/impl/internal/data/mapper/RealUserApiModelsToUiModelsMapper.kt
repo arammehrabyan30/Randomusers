@@ -27,7 +27,7 @@ internal class RealUserApiModelsToUiModelsMapper : UserApiModelsToUiModelsMapper
         return UserItemUiModel(
             id = id,
             age = item.dob?.age ?: 0,
-            name = item.name?.firstName.orEmpty() + item.name?.lastName.orEmpty(),
+            name = "${item.name?.firstName.orEmpty()}  ${item.name?.lastName.orEmpty()}",
             email = item.email.orEmpty(),
             phone = item.phone.orEmpty(),
             birthDate = formatLegacyDate(item.dob?.date),

@@ -6,6 +6,7 @@ import com.aram.mehrabyan.core.ui.PagedAdapter
 import com.aram.mehrabyan.users.impl.databinding.ItemUserBinding
 
 internal class UserItemsAdapter(
+    private val openDetailsClick: (UserItemUiModel) -> Unit,
     private val bookmarkClick: (UserItemUiModel) -> Unit,
     loadMore: (() -> Unit)? = null
 ) : PagedAdapter<UserItemUiModel, UserItemViewHolder>(
@@ -21,6 +22,7 @@ internal class UserItemsAdapter(
         )
         return UserItemViewHolder(
             binding = binding,
+            openDetailsClick = openDetailsClick,
             bookmarkClick = bookmarkClick
         )
     }

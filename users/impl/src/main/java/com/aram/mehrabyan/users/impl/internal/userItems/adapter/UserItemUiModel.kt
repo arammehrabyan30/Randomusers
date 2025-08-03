@@ -1,5 +1,9 @@
 package com.aram.mehrabyan.users.impl.internal.userItems.adapter
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 internal data class UserItemUiModel(
     val id: String,
     val age: Int,
@@ -14,4 +18,4 @@ internal data class UserItemUiModel(
     val thumbnail: String?,
     val imageUrl: String?,
     val isBookMarked: Boolean
-)
+) : Parcelable

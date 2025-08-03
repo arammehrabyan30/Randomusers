@@ -9,6 +9,7 @@
     <color name="nav_bar_unselected_color">#A7A7A7</color>
     <color name="sub_title_color">#A7A7A7</color>
     <color name="title_color">#FFFFFF</color>
+    <string name="bookmark_title">Bookmark</string>
     <string name="bookmarks_title">Bookmarks</string>
     <string name="bookmarks_toolbar_title">Saved Items</string>
     <string name="empty_bookmarks_title">You do not have Saved Users</string>

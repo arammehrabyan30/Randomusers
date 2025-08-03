@@ -4,6 +4,7 @@
     <string name="bookmarks_toolbar_title">Saved Items</string>
     <string name="random_users_title">Users</string>
     <string name="bookmarks_title">Bookmarks</string>
+    <string name="bookmark_title">Bookmark</string>
     <string name="loading_title">Loading…</string>
     <string name="error_title">Something went wrong</string>
     <string name="no_network_title">No Network</string>

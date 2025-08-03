@@ -9,6 +9,7 @@ import com.aram.mehrabyan.core.ui.gone
 import com.aram.mehrabyan.core.ui.show
 import com.aram.mehrabyan.users.impl.R
 import com.aram.mehrabyan.users.impl.databinding.FragmentUserItemsBinding
+import com.aram.mehrabyan.users.impl.internal.users.UsersNavigationViewModel
 import com.aram.mehrabyan.users.impl.internal.userItems.adapter.UserItemUiModel
 import com.aram.mehrabyan.users.impl.internal.userItems.adapter.UserItemsAdapter
 import com.aram.mehrabyan.users.impl.internal.userItems.bookmarks.BookMarksViewModel
@@ -18,6 +19,7 @@ import kotlinx.coroutines.flow.onEach
 internal class RealBookmarksUiController : BookmarksUiController {
 
     override fun setup(
+        navigator: UsersNavigationViewModel,
         viewModel: BookMarksViewModel,
         fragment: Fragment,
         binding: FragmentUserItemsBinding
@@ -25,7 +27,7 @@ internal class RealBookmarksUiController : BookmarksUiController {
         binding.refreshLayout.isEnabled = false
         binding.tvError.text =
             binding.root.resources.getString(R.string.empty_bookmarks_title)
-        val adapter = createAdapter(viewModel = viewModel)
+        val adapter = createAdapter(navigator = navigator, viewModel = viewModel)
         setupAdapter(binding = binding, adapter = adapter)
         subscribeToUiState(
             viewModel = viewModel,
@@ -71,9 +73,17 @@ internal class RealBookmarksUiController : BookmarksUiController {
         }
     }
 
-    private fun createAdapter(viewModel: BookMarksViewModel): UserItemsAdapter {
+    private fun createAdapter(
+        navigator: UsersNavigationViewModel,
+        viewModel: BookMarksViewModel
+    ): UserItemsAdapter {
         return UserItemsAdapter(
-            bookmarkClick = { item -> viewModel.bookmark(item) }
+            openDetailsClick = { item ->
+                navigator.emitAction(UsersNavigationViewModel.Action.OpenUserDetails(item))
+            },
+            bookmarkClick = { item ->
+                viewModel.bookmark(item)
+            }
         )
     }
 }

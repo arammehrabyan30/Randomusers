@@ -9,6 +9,7 @@ int color nav_bar_unselected_color 0x0
 int color sub_title_color 0x0
 int color title_color 0x0
 int drawable bg_circle 0x0
+int drawable icon_back 0x0
 int drawable icon_bookmark_filled 0x0
 int drawable icon_bookmark_outline 0x0
 int drawable icon_bookmark_selector 0x0
@@ -19,8 +20,11 @@ int drawable item_bg_ripple 0x0
 int font gilroy_bold 0x0
 int font gilroy_medium 0x0
 int font gilroy_semi_bold 0x0
+int id app_bar 0x0
+int id bookmark_button 0x0
 int id bottom_loading_bar 0x0
 int id bottom_navigation 0x0
+int id collapsing_toolbar 0x0
 int id icon_bookmark 0x0
 int id image_user 0x0
 int id load_more 0x0
@@ -31,13 +35,18 @@ int id progress_bar 0x0
 int id progress_indicator 0x0
 int id refresh_layout 0x0
 int id rv_user_items 0x0
+int id scrollView 0x0
 int id title 0x0
 int id toolbar 0x0
+int id tv_email 0x0
 int id tv_error 0x0
+int id tv_location 0x0
+int id tv_phone 0x0
 int id tv_sub_title 0x0
 int id tv_title 0x0
 int id tv_toolbar 0x0
 int id user_details 0x0
+int id user_image 0x0
 int id users 0x0
 int id users_navigation 0x0
 int id view_pager 0x0
@@ -48,6 +57,7 @@ int layout item_user 0x0
 int layout load_more_indicator 0x0
 int menu users_bottom_nav_menu 0x0
 int navigation users_nav_graph 0x0
+int string bookmark_title 0x0
 int string bookmarks_title 0x0
 int string bookmarks_toolbar_title 0x0
 int string empty_bookmarks_title 0x0
